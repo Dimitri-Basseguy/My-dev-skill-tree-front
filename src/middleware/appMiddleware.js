@@ -2,7 +2,16 @@ import axios from 'axios';
 import { api } from 'src/utils/url';
 
 import { CHECK_LOGGED, loadUser } from 'src/actions/user';
-import { GET_ADMIN, loading, ADD_USER, GET_SELECTED_USER, GET_ALL_USERS, saveAdminList ,saveUsersList, getSelectedUserSuccess } from 'src/actions/app';
+import {
+  GET_ADMIN,
+  loading,
+  ADD_USER,
+  GET_SELECTED_USER,
+  GET_ALL_USERS,
+  saveAdminList,
+  saveUsersList,
+  getSelectedUserSuccess,
+} from 'src/actions/app';
 
 
 const appMiddleware = (store) => (next) => (action) => {

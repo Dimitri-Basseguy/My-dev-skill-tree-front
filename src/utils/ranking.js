@@ -1,4 +1,4 @@
-export const imgPath = 'http://www.dimitri-basseguy.fr/projet-my-dev-skill-tree-back/public/assets/img/rank/'; // + '{level}.png';
+export const imgPath = 'https://www.dimitri-basseguy.fr/projet-my-dev-skill-tree-back/public/assets/img/rank/'; // + '{level}.png';
 
 export const xpMax = {
   front: 29250,
