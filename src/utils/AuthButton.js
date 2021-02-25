@@ -12,8 +12,8 @@ function AuthButton() {
       </button>
     </div>
   ) : (
-    <p className="disco"></p>
-  );
+      <p className="disco"></p>
+    );
 }
 
 export default AuthButton;

@@ -21,7 +21,7 @@ const Homepage = () => {
     <div className="container">
       <div className="homepage-page">
         <div className="homepage">
-          <div className="homepage-logo"><img src="https://www.dimitri-basseguy.fr/MyDevSkillTree/images/logo.png" alt="My Dev Skill Tree Logo" /></div>
+          <div className="homepage-logo"><img src="https://www.dimitri-basseguy.fr/projet-my-dev-skill-tree-back/public/assets/img/logo-mdst.svg" alt="My Dev Skill Tree Logo" /></div>
           <Quote />
           <div className="headlines">
             <p className="start">Comment ça marche ?</p>
