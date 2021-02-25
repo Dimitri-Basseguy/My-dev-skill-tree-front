@@ -1,0 +1,48 @@
+
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+.login, .signin, .user-edit-page{
+  width:90%;
+  margin:0 auto;
+  @include sm{
+    width:50vw;
+  }
+}
+
+.form{
+  .form-submit {
+    position: relative;
+    margin-bottom:$gutter*2;
+    text-align: center;
+    .form-button {
+      width : 30%;
+      display:block;
+      margin:0 auto;
+      border-radius: 30px;
+      border : none;
+      // border : 1px solid $MediumColor;
+      background-color: $LightColor;
+      color : white;
+      padding : 5px;
+      // font-weight: bold;
+      font-size: 1.5em;
+      text-align: center;
+    }
+    .loader {
+      position: absolute;
+      top:0;
+      left:50%;
+      width:30px;
+      transform: translateX(-50%);
+    }    
+  }
+}
+
+.alert {
+    display: flex;
+    justify-content: center;
+    width : 100%;
+    margin-bottom: 20px;
+    
+}

@@ -1,0 +1,59 @@
+@import 'reset';
+@import 'vars';
+@import 'mixins';
+
+
+* {
+  font-family: $nunito;
+  color:$text;
+}
+
+body {
+  font-family: $nunito;
+  background-color: $DarkColor;
+  color:$text;
+}
+
+.loading{
+  opacity: 0 !important;
+  transition: 0.1s ease-out;
+}
+
+.loading-spinner{
+  width:50px;
+  margin:0 auto;
+}
+
+.title{
+  display: block;
+  text-align:center;
+  padding-top: $gutter*2;
+  padding-bottom: $gutter*2;
+  font-size: 1.5em;
+  @include sm{
+    font-size: 2em;
+  }
+}
+
+.borders{
+  border:1px solid $MediumColor;
+  border-radius: 6px;
+  transition:0.5s;
+  &:hover{
+    border:1px solid $LightColor;
+    box-shadow: 0px 0px 8px 1px $LightColor; 
+  }
+}
+
+h1, h2, h3 {
+  color : $text;
+}
+
+img{
+  width:100%;
+}
+p {
+  color : $text;
+}
+
+// #46008B

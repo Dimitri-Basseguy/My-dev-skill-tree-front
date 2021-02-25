@@ -1,0 +1,12 @@
+.skill-rank-img{
+    width:50%;
+    margin: 0 auto;
+    transition: 1s;
+  }
+
+  .rotate{
+    animation-name: rotate;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }

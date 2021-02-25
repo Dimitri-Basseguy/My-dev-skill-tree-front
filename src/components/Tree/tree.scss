@@ -1,0 +1,270 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+$parentSize : 140px;
+
+$validMainColor:darken($MediumColor, 10%);
+$noValidColor: darken($MediumColor, 30%);
+$validColor: darken($MediumColor, 30%);
+$validColorSubChild: darken($validColor, 5%);
+$transitionValid: 0.5s;
+
+.item-icon{
+  width:$gutter;
+  height:$gutter;
+  margin-right:$gutter
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.tree{
+  width:95%;
+  margin:0 auto;
+  // height:calc(100vh - #{$gutter*3});
+  padding-bottom:$gutter;
+  display : block;
+  @include sm{
+    width:70%;
+  }
+
+  &.container{
+    overflow: hidden;
+    height:95%;
+  }
+
+  .tree-order-btn{
+    display:flex;
+    align-items: center;
+    width:40%;
+    margin:0 auto;
+    justify-content: space-between;
+
+    .button{
+      width: 40%;
+      display: inline-block;
+      font-size: 0.9em;
+      border: none;
+      background-color: $LightColor;
+      &:hover{
+        background-color: $MediumColor;
+      }
+    }
+  }
+
+  .main{
+    width:100%;
+    display:flex;
+    align-items: center;
+    position: relative;
+    border-radius: 7px;
+    padding:.5rem;
+    margin:0.5rem 0 0 0;
+    flex-direction: column;
+    background-color: $DarkColor;
+
+    &:hover{
+      transform: scale(1.02);
+      .user-progress{
+        border-color: $LightColor;
+        box-shadow: 0px 0px 8px 1px $LightColor; 
+        .--fill{
+          background-color: $LightColor;
+        }
+      }
+      .item-count{
+        img{
+          animation: rotate 2s infinite linear;
+        }
+      }
+    }
+
+    .main-heading {
+      display: flex;
+      padding:0 $gutter/2;
+      width:100%;
+      align-items: center;
+      cursor: pointer;
+
+      .item-title{
+        width:50%;
+
+        &.valid{
+          color: darken($text, 50%);
+        }
+      }
+
+      .user-progress{
+        width:40%;
+      }
+
+      .item-count{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: right;
+        padding: 0 0 0 $gutter;
+        width:130px;
+        img{
+          width:20px;
+        }
+      }
+    }
+    
+      
+    .child-group{
+      display:flex;
+      flex-direction: column;
+      width : 100%;
+      max-height:0px;
+      overflow:hidden;
+      transition:.2s ease-out;
+      
+      &.open {
+        height:auto;
+        max-height:1000px;
+        padding:.5rem;
+        transition:.2s ease-in;
+      }
+
+      .child{
+        display:flex;
+        padding:.5rem;
+        margin:0.5rem 0 0 0;
+        border-radius: 7px;
+        // border:0px solid $LightColor;
+        background-color: $noValidColor;
+        transition:$transitionValid;
+        cursor: pointer;
+
+        &.valid{
+          background-color: $validMainColor;
+          transition:$transitionValid;
+
+          * {
+            color: darken($text, 50%);
+            transition:$transitionValid;
+          }
+        }
+
+      }
+
+      .close {
+      }
+
+      .parent-child{
+        width:100%;
+        display:flex;
+        border-radius: 7px;
+        //border:1px solid $LightColor;
+        padding:.5rem;
+        margin:0.5rem 0 0 0;
+        flex-direction: column;
+        border: 1px solid #8000ff;
+        align-items: center;
+        padding:$gutter/2;      
+
+        .child-group{
+          display:flex;
+          flex-direction: column;
+          width : 100%;
+          max-height:0px;
+          overflow:hidden;
+          transition:.2s ease-out;
+          text-align : center;
+          &.open {
+            padding:.5rem;
+            height:auto;
+            max-height:1000px;
+            transition:.2s ease-in;
+          }
+          
+          .child{
+            background-color: $noValidColor;
+            display:flex;
+            padding:.5rem;
+            margin:0.5rem 0 0 0;
+            width : 100%;
+            border-radius: 7px;
+            // border:0px solid $LightColor;
+
+
+            &.valid{
+              background-color: $validMainColor;
+
+              > * {
+                color: darken($text, 50%);
+              }
+            }
+          }
+        }  
+      }
+    }
+  }
+
+
+
+
+
+  label {
+    font-size: 26px;
+    color: $DarkColor;
+    cursor: pointer;
+    display : flex;
+    justify-content : flex-end;
+}
+  input {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      z-index : 99 !important;
+      &:checked {
+
+          ~ .check {
+              border-color: $MediumColor;
+              box-shadow: 0px 0px 0px 15px $MediumColor inset;
+
+              &::after {
+                  opacity: 1;
+                  transform: scale(1);
+              }
+          }
+      }
+  }
+
+  .check {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      border-radius: 100px;
+      background-color: $DarkColor;
+      border: 2px solid $MediumColor;
+      box-shadow: 0px 0px 0px 0px $MediumColor inset;
+      transition: all 0.15s cubic-bezier(0, 1.05, 0.72, 1.07);
+
+      &::after {
+          content: '';
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          z-index: 4;
+          position: absolute;
+          transform: scale(0);
+          background-size: 50%;
+          background-image: url('http://s6.picofile.com/d/8392306668/c38c12a0-6db3-47d4-a80c-7dad8fab5186/checkmark.svg');
+          background-repeat: no-repeat;
+          background-position: center;
+          transition-delay: 0.2s !important;
+          transition: all 0.25s cubic-bezier(0, 1.05, 0.72, 1.07);
+      }
+  }
+}

@@ -1,0 +1,44 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+.faq {
+  width: 90vw;
+  min-height: $minHeightPage;
+  margin:0 auto;
+
+  @include sm{
+    width:80vw;
+  }
+  @include md{
+    width:50vw;
+  }
+
+
+  .faq-item{
+    margin-bottom: $gutter*3;
+    transform: translate(0%);
+    transition: 0.5s;
+
+    &.loading{
+      transform: translate(-100%);
+    }
+
+    &:hover{
+      .faq-item-title{
+        padding-left:$gutter*2;
+      }
+    }
+    
+    > div:not(:last-child){
+      margin-bottom: $gutter;
+    }
+    .faq-item-title{
+      padding-left:$gutter;
+      font-size: 1.2em;
+      color:$LightColor;
+      font-size: 1.2em;
+      transition: 0.5s;
+    }
+
+  }
+}

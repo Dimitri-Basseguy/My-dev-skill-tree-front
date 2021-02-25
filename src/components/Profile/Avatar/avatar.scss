@@ -1,0 +1,15 @@
+@import 'src/styles/vars';
+
+.user-avatar{
+  display:inline-block;
+  border-radius:10px;
+  background-position: center;
+  background-size: cover;
+  background-position: top;
+  // border: 1px solid $LightColor;
+  &::after{
+    content:"";
+    display: block;
+    padding-bottom: 100%;
+  }
+}

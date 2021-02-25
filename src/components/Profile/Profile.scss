@@ -1,0 +1,126 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+.user-edit{
+  position:absolute;
+  right:$gutter;
+  display:inline-block;
+
+  button{
+    font-size:0.7em;
+  
+  }
+}
+
+.user{
+  position: relative;
+  color: $text;
+  width:90%;
+  margin:$gutter auto;
+  text-align: left;
+  padding:$gutter;
+  opacity: 1;
+  transition:opacity .1s border 1s;
+  @include md {
+    width:80vw;
+  }
+  @include lg {
+    width:50vw;
+    max-width:1200px;
+  }
+
+  .user-tree-btn{
+    width:50%;
+    margin:0 auto;
+    margin-top:$gutter;
+    text-align: center;
+    font-size : 0.6em;
+    @include md {
+    .button {
+      width : 70%;
+      font-size : 2.5em; 
+    }
+  }
+  }
+
+  .user-header{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    @include sm{
+      flex-direction: row;
+    }
+
+    .user-avatar{
+      width:80%;
+      margin:0 auto;
+      @include sm{
+        width:30%;
+        margin:0;
+        margin-right:$gutter;
+      }
+    }
+
+    .user-header-content{
+      display:flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-start;
+
+      .user-name{
+        display:flex;
+        flex-direction: column;
+        color:$text;
+        font-size: 2em;
+        margin-top:$gutter;
+        text-align: center;
+        @include sm{
+          margin-top:0;
+          text-align: left;
+        }
+
+        .form-input{
+          margin: 0 auto;
+          border : 1px solid $MediumColor;
+          background-color: $DarkColor;
+          color : $LightColor;
+          font-size:1em;
+        }
+
+        span:nth-child(1){
+          color:$text;
+        }
+
+        span:nth-child(2){
+          font-size: 0.8em;
+        }
+      }
+
+      .user-links{
+        margin-top:$gutter;
+        display:flex;
+        justify-content: space-evenly;
+        width:100%;
+        @include sm {
+
+
+        }
+      }
+    }
+  }
+
+  .user-bio{
+    padding:$gutter 0 $gutter 0;
+  }
+
+  .user-skills{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    @include sm{
+      flex-direction: row;
+    }
+
+    
+  }
+}

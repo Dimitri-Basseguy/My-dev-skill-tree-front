@@ -1,0 +1,139 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+.active{
+  color:$LightColor;
+}
+li {
+  &:hover{
+    color: $LightColor;
+  }
+}
+@media screen and (max-width: $mobileWidth) {
+
+  .main-navigation{
+    position:fixed !important;
+    top:0;
+    height:100vh;
+    width:70vw !important;
+    pointer-events: none;
+    // font-family: 'Righteous', cursive;
+    color : $text;
+    display: flex;
+    
+    .bm-burger-button {
+      pointer-events: auto;
+      z-index: 99;
+      position: absolute;
+      width: 36px;
+      height: 30px;
+      top: $gutter; left: $gutter;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: left .5s;
+      pointer-events: auto;
+
+      .bm-burger-bars {
+        background: $LightColor;
+        height: 5px;
+        display: block;
+        width: 100%;
+        transform-origin: left;
+        transition: transform .5s, opacity .5s;
+      }
+    }
+
+    .cross {
+      left:calc(70vw + 1rem);
+      .bm-burger-bars:nth-child(1) {
+        transform: rotate(45deg);
+        
+      }
+
+      .bm-burger-bars:nth-child(2) {
+        opacity: 0;
+      }
+
+      .bm-burger-bars:nth-child(3) {
+        transform: rotate(-45deg);
+        transform-origin: left;
+      }
+    }
+
+    .mainmenu{
+      pointer-events: auto;
+      position: absolute;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height:100%;
+      width:100%;
+      background-color: darken($DarkColor, 5%);
+      border-right: 1px solid lighten($DarkColor, 5%);
+      transition: left .5s;
+      //justify-content: center;
+      align-items: center;
+    
+      li:first-child{
+        width:50%;
+      }
+    }
+    .open{
+      left:0;
+    }
+    .close{
+      left:-100%;
+    }
+  }
+}
+.systemLogin{
+  display: flex;
+  align-items: center;
+}
+.buttonNav{
+  width: auto;
+}
+.main-navigation{
+  width:100vw;
+  z-index: 1;
+  position:absolute;
+  @include sm{
+    background-color: darken($DarkColor, 5%);
+    border-bottom: 1px solid lighten($DarkColor, 5%);
+  }
+
+  ul{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    @include sm{
+      li{
+        padding:0 $gutter 0 $gutter;
+        a{
+          height:100%;width:100%;
+          img{
+            padding-top:2px;
+            width:($gutter*4);
+          }
+        }
+      }
+    }
+  }
+}
+
+.registerNav{
+  display: inline-block;
+  font-size: 1em;
+  border-radius: 30px;
+  padding:$gutter/2;
+  border: none;
+  margin-left: 0.8rem;
+  background-color: $LightColor;
+  text-align: center;
+  &:hover{
+    background-color: $MediumColor;
+  }
+}

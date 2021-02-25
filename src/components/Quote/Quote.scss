@@ -1,0 +1,23 @@
+.quote-container{
+    text-align: center;
+    min-height: 50px;
+    max-height:20px;
+    overflow:hidden;
+    font-size: 1.2em;
+    transition:1s ease-out;
+    margin-bottom: 2rem;
+    opacity: 0;
+
+    &.active{
+      max-height:500px;
+      opacity:1;
+      transition:1s ease-out;
+    }
+    .quote{
+    }
+    .quote-author{
+        margin-top: 0.5rem;
+        text-align: center;
+        color: #6c757d;
+    }
+}

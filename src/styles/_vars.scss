@@ -1,0 +1,14 @@
+$LightColor : #FF0093;
+$DarkColor : #251152;
+$MediumColor : #8000FF;
+$text : white;
+$gutter : 1rem;
+
+$navBarDesktop: 3rem;
+$footer: 2rem;
+$minHeightPage: calc(100vh - #{$navBarDesktop + $footer});
+
+$mobileWidth: 430px;
+
+$nunito: 'Nunito', sans-serif;
+$roboto: 'Roboto Mono', monospace;

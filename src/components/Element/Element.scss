@@ -1,0 +1,307 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+$parentSize : 140px;
+
+
+$validMainColor:darken($MediumColor, 30%);
+$noValidColor: darken($MediumColor, 20%);
+$validColor: darken($MediumColor, 30%);
+$validColorSubChild: darken($validColor, 5%);
+
+
+.item-container{
+  cursor: pointer;
+  @include xl{
+    position:absolute;
+    width:0;
+    height:0;
+    font-size:0.8rem;
+  }
+
+  .item-main:hover{
+    box-shadow: 0px 0px 10px 1px $LightColor;
+  }
+
+  .item-main, .item-child{
+    border-radius: 7px;
+    border:1px solid $LightColor;
+    padding:.5rem;
+    margin:0.5rem 0 0 0;
+  }
+
+  .item-main{
+    border-radius: 7px;
+
+    &.valid{
+      background-color:$validMainColor;
+      .item-parent{
+        .item-name{
+          text-decoration: line-through;
+        }
+      }
+    }
+    @include xl{
+      width:$parentSize;
+      height:$parentSize;
+      border-radius: 50%;
+      padding:0;
+      margin:0;
+      position: relative;
+      transform: translate(-50%, -50%);
+      transition: .4s;
+    }
+  
+    input[type=checkbox] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      margin:0;
+      padding:0;
+      height: 15px;
+      width: 15px;
+      background: $MediumColor;
+      border: 2px solid $DarkColor;
+  
+      &:checked {
+        background: $DarkColor;
+        border: 2px solid $MediumColor;
+        padding-right:10px;
+        position :relative;
+      }
+    }
+  
+    .item-parent{
+      display:flex;
+      align-items: center;
+      position: relative;
+      @include xl{
+        border-radius: 50%;
+        border:4px solid $LightColor;
+        background-color: $DarkColor;
+        justify-content: space-evenly;
+        flex-direction: column;
+        height:100%;
+      }
+
+      .item-name{
+        width:50%;
+        color:$text;
+        text-transform: uppercase;
+        text-align: left;
+        @include xl{
+          width:100%;
+          text-align: center;
+        }
+      }
+      .item-progress{
+        width:25%;
+        height: 15px;
+        border: 1px solid $LightColor;
+        border-radius : 4px;
+        position : relative;
+        overflow: hidden;
+        @include xl{
+          width:60%;
+        }
+  
+        .--fill{
+          display:block;
+          height:100%;
+          background-color:darken($MediumColor, 5%);
+          width:0%;
+        }
+      }
+      .item-children--count{
+        text-align: center;
+        width:25%;
+        @include xl{
+          width:100%;
+        }
+  
+        .--number{
+          display:inline-block;
+          width:70%;
+          @include xl{
+            width:initial;
+          }
+        }
+
+        input{
+          pointer-events: none;
+        }
+        input[type=checkbox] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          -ms-appearance: none;
+          margin:0;
+          padding:0;
+          height: 15px;
+          width: 15px;
+          background: $MediumColor;
+          border: 2px solid $DarkColor;
+        }
+        input[type=checkbox]:checked {
+          background: $DarkColor;
+          border: 2px solid $MediumColor;
+          padding-right:10px;
+          position :relative;
+        }
+      }
+    }
+
+    .children-content{
+      max-height:0px;
+      overflow:hidden;
+      transition:.2s ease-out;
+
+      .child-origin{
+        &.valid{
+          .child-translate{
+            .item-child{
+              text-decoration: line-through;
+            }
+          }
+        }
+        .child-translate{
+          .item-child{
+            &.valid{
+              background-color: $validColor;
+              .item-name{
+                text-decoration: line-through;
+              }
+            }
+            &.noValid{
+              background-color: $noValidColor;
+            }
+          }
+        }
+      }
+
+      @include xl{
+        position: absolute;
+        overflow:initial;
+        top:50%;
+        left:50%;
+        height:0px;
+        transition:1s;
+        z-index: -5;
+
+
+        &.close > div{
+          opacity:0;
+          transition:1s;
+        }
+
+        .child-origin{
+          position: absolute;
+          width:0;
+          height:0;
+
+          &.valid{
+            text-decoration: line-through;
+          }
+
+          .child-translate{
+            .item-child{
+              position: absolute;
+              margin:initial;
+              transform: translate(-50%, -50%);
+              border-radius: 50%;
+              width:$parentSize/2;
+              height:$parentSize/2;
+              border: 1px solid $LightColor;
+              display:flex;
+              flex-direction: column;
+              justify-content: center;
+              text-align: center;
+
+              .children-content{
+                .child-origin{
+                  .child-translate{
+                    .item-child{
+                      width:$parentSize/3;
+                      height:$parentSize/3;
+                    }
+
+                    .valid{
+                      //background-color: $DarkColor !important;
+                      color:rgba(255, 255, 255, 0.5) !important;
+                      text-decoration: line-through;
+                    }
+                  }
+                }
+              }
+            }
+            .valid{
+              //background-color: $DarkColor !important;
+              color:rgba(255, 255, 255, 0.5) !important;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
+
+      .child-origin{
+        .child-translate{
+          .item-child{
+            .children-content{
+              .child-origin{
+                .child-translate{
+                  .item-child{
+                    &.valid {
+                      span{
+                        text-decoration: line-through;
+                      }
+                      // VALIDATION SOUS CATEGORIE
+                      background-color: $validColorSubChild;
+                    }
+                  }
+                }
+
+              }
+
+            }
+          }
+        }
+      }
+
+    }
+
+    .open {
+      height:auto;
+      max-height:1000px;
+      transition:.2s ease-in;
+      @include xl{
+        height:0;
+        max-height: 0;
+        transition:0;
+
+        .child-origin{
+          .child-translate{
+
+            transition:1s;
+          }
+        }
+      }
+    }
+
+    .close {
+      .child-origin{
+        .child-translate{
+          transform: translateY(1px) !important;
+          transition:1s;
+        }
+      }
+    }
+
+    .item-child{
+      //background-color: lighten($DarkColor, 10%);
+      color: $text; //TODO : à changer
+  
+      input{
+        float:right;
+      }
+    }
+  }
+} 

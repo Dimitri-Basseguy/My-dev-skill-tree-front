@@ -1,0 +1,46 @@
+@import 'src/styles/vars';
+
+.profile-tree{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin:0 auto;
+
+  .content{
+    z-index: -1;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -50%);
+    width:88%;
+    height:88%;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .user-avatar{
+      width:50%;
+    }
+    .title{
+
+    }
+  }
+
+  .chart{
+    transform: scale(-1);
+    path:nth-child(1){
+      stroke: $LightColor;
+    }
+    path:nth-child(2){
+      stroke: $MediumColor;
+      transition:1s;
+    }
+    path{
+      d: path('M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831');
+    }
+  }
+}

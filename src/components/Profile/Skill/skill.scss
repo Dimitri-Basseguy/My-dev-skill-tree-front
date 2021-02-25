@@ -1,0 +1,27 @@
+@import 'src/styles/vars';
+@import 'src/styles/mixins';
+
+.skill{
+  width:100%;
+  padding:$gutter;
+  //border:1px solid darken($LightColor, 30%);
+  border-radius: 5px;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  perspective:200px;
+  
+  .skill-xp{
+    color:$text;
+  }
+
+  > *:not(:last-child){
+    margin-bottom:$gutter;
+  }
+
+  &-name{
+    font-size: 1.1em;
+    color:$LightColor;
+    text-transform: uppercase;
+  }
+}

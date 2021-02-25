@@ -1,0 +1,30 @@
+@import 'src/styles/vars';
+
+.user-progress{
+  display:inline-block;
+  width:100%;
+  height:$gutter*1.5;
+  border: 1px solid $MediumColor;
+  border-radius : 10px;
+  position : relative;
+  overflow: hidden;
+  transition:.5s;
+
+  .--fill{
+    display:block;
+    height:100%;
+    width:0;
+    background-color:$MediumColor;
+    transition:1s;
+  }
+
+  &::before{
+    content:attr(percent);
+    display:block;
+    position: absolute;
+    font-size:0.8em;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+  }
+}
