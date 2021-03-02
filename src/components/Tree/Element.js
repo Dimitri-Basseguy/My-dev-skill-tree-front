@@ -96,7 +96,7 @@ const Element = ({ index, items, item, test }) => {
           {children.length !== 0 && (
             <>
               <ProgressBar xp={progress} totalXp={item.children.length} />
-              <span className="item-count"><img src="https://www.dimitri-basseguy.fr/projet-my-dev-skill-tree-back/public/assets/img/logo-mdst.svg" alt="itemcount" />{progress} / {item.children.length}</span>
+              <span className="item-count"><img src="https://www.dimitri-basseguy.fr/projet-my-dev-skill-tree-back/public/assets/img/target.png" alt="itemcount" />{progress} / {item.children.length}</span>
             </>
           )}
         </div>
