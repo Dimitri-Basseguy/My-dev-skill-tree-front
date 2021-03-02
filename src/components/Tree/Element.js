@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setValidation } from 'src/actions/tree';
 import { howManyChildrenValidate } from 'src/components/Tree/functions';
 
-import imgTarget from 'src/assets/images/target.png';
 import ProgressBar from 'src/components/Profile/ProgressBar';
 
 
@@ -97,7 +96,7 @@ const Element = ({ index, items, item, test }) => {
           {children.length !== 0 && (
             <>
               <ProgressBar xp={progress} totalXp={item.children.length} />
-              <span className="item-count"><img src={imgTarget} alt="itemcount" />{progress} / {item.children.length}</span>
+              <span className="item-count"><img src="https://www.dimitri-basseguy.fr/projet-my-dev-skill-tree-back/public/assets/img/logo-mdst.svg" alt="itemcount" />{progress} / {item.children.length}</span>
             </>
           )}
         </div>
